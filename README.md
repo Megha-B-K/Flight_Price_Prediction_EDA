@@ -1,7 +1,7 @@
 # Flight Price Prediction - Exploratory Data Analysis (EDA)
 
 **Author: Megha Kallapur**
-  Bengaluru, India  
+  | Bengaluru, India  
   meghakallapur22@gmail.com | GitHub : https://github.com/Megha-B-K
 
 ## Overview
