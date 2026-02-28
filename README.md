@@ -55,6 +55,28 @@ df['Total_Stops'] = df['Total_Stops'].map({'non-stop': 0, '1 stop
 **Monthly/Seasonal** trends
 **Departure time** patterns
 
+## Key Business Insights
 
+1. **IndiGo** offers lowest average fares (~₹4K)
+2. **Non-stop flights** = 40% cheaper than 1-stop flights
+3. **Bangalore-New Delhi** = highest demand route
+4. **Peak months** (Mar-Jun): +25% price surge
+5. **Morning flights** (6-10 AM) = best value
+6. **Longer duration** (>10hrs) = premium pricing
+
+Skills Demonstrated:
+
+Pandas (Advanced data wrangling)
+
+Feature Engineering (Datetime, Text parsing)
+
+EDA Best Practices
+
+Statistical Analysis
+
+Visualization (Seaborn/Matplotlib)
+
+Gmail: meghakallapur@gmail.com
+Last Updated: February 2026
 
 
