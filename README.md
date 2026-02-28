@@ -1,50 +1,60 @@
-# Flight Price Prediction - Exploratory Data Analysis (EDA)
+# Flight Price Prediction - EDA & Analysis 🛫💰
 
-**Author: Megha Kallapur**
-  | Bengaluru, India  
-  meghakallapur22@gmail.com | GitHub : https://github.com/Megha-B-K
+**Author**: Megha Kallapur  
+**Location**: Karnataka, India  
+**[GitHub](https://github.com/Megha-B-K)** 
+---
 
-## Overview
-Performed comprehensive EDA on a dataset of **10,683 Indian domestic flights** to uncover patterns in ticket prices influenced by airlines, stops, timings, and routes. Average price: **₹9,087** (std: ₹4,611); prices range from **₹1,759 to ₹79,512**. Prepared data for potential ML modeling like price prediction.
+## Project Overview
 
-** Key Insights**:
-- Jet Airways flights often premium-priced
-- Multi-stop routes (2+ stops) correlate with higher costs  
-- Non-stop Bangalore-Delhi flights are budget-friendly
+Comprehensive **Exploratory Data Analysis (EDA)** of **10,683 flight records** to understand Indian aviation pricing patterns. Perfect foundation for ML price prediction models.
 
-## Dataset
-- **Source**: `flight_price.xlsx` (11 columns: Airline, Date_of_Journey, Source, Destination, Route, Dep_Time, Arrival_Time, Duration, Total_Stops, Additional_Info, Price)
-- **Size**: 10,683 rows
-- **Missing Values**: Minimal (Route/Total_Stops: 1 each ~0.01%)
-- **Features Engineered**: Date/Month/Year, Dep/Arrival Hour/Min, Duration (minutes)
+**Dataset**: Real flight booking data (2019) with airlines, routes, timings, stops, and prices.
 
-## Tech Stack
-- **Languages/Tools**: Python, Pandas, NumPy, Matplotlib, Seaborn
-- **Environment**: Jupyter Notebook
+**Key Questions**:
+- Which airlines offer best value?
+- How do stops/duration affect pricing?
+- Peak travel seasons & routes?
+- Time-of-day pricing patterns?
 
-## EDA Process
-1. **Data Loading & Inspection**: Loaded Excel; checked shape, info, head/tail, nulls via `df.isnull().sum()`
-2. **Cleaning**: Handled minimal nulls; dropped redundant columns (e.g., original times)
-3. **Feature Engineering**:
-   - Split Date_of_Journey → Date/Month/Year (int)
-   - Parsed Dep/Arrival_Time → Hour/Min (int)
-   - Duration → Hours/Mins → Total minutes
-4. **Analysis**:
-   - Descriptive stats: `df.describe()` for Price distribution
-   - Visualizations: Distributions, correlations (implied via code)
-5. **Insights**: Higher stops/duration → higher price; airline-specific trends
+---
 
-## Repository Structure
-Flight-Price-Prediction/
-├── Flight-Price-Prediction.ipynb # Main EDA notebook
-├── price.xlsx # Dataset
-├── requirements.txt # Dependencies
-├── README.md # This file
+## Dataset Overview (10,683 Records)
 
-## Skills Demonstrated
-- Exploratory Data Analysis (EDA)
-- Data Cleaning & Preprocessing
-- Feature Engineering (temporal features)
-- Statistical Analysis
-- Data Visualization Setup
+| Feature | Description | Sample |
+|---------|-------------|--------|
+| **Airline** | IndiGo, Jet Airways, Air India, etc. | IndiGo (most frequent) |
+| **Source** | Departure cities | Banglore, Kolkata, Delhi |
+| **Destination** | Arrival cities | New Delhi, Banglore, Cochin |
+| **Total_Stops** | 0, 1, 2+ stops | non-stop = lowest price |
+| **Duration** | Flight time (minutes) | Avg: ~9087₹, Max: 79,512₹ [file:36] |
+| **Price** | Ticket cost (₹) | Mean: ₹9,087 |
+
+**Price Stats**: ₹1,759 (min) → **₹9,087 (avg)** → ₹79,512 (max)
+
+---
+
+## EDA Analysis Performed
+
+### Data Cleaning Pipeline
+```python
+# Feature Engineering (from your notebook)
+df['Date'] = pd.to_datetime(df['Date_of_Journey'], format='%d/%m/%Y')
+df['Month'], df['Year'] = df['Date'].dt.month, df['Date'].dt.year
+df['Departure_Hour'] = pd.to_datetime(df['Dep_Time']).dt.hour
+df['Duration_min'] = pd.to_timedelta(df['Duration']).dt.total_seconds() / 60
+df['Total_Stops'] = df['Total_Stops'].map({'non-stop': 0, '1 stop
+': 1, '2 stops': 2, '3 stops': 3, '4 stops': 4})
+
+## Key Visualizations Created
+
+- **Airline vs Price** (boxplots)
+- **Stops vs Price** correlation  
+- **Source-Destination** heatmaps
+- **Duration-Price** scatter plots
+- **Monthly/Seasonal** trends
+- **Departure time** patterns
+
+
+
 
