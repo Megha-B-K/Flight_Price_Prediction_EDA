@@ -48,12 +48,12 @@ df['Total_Stops'] = df['Total_Stops'].map({'non-stop': 0, '1 stop
 
 ## Key Visualizations Created
 
-- **Airline vs Price** (boxplots)
-- **Stops vs Price** correlation  
-- **Source-Destination** heatmaps
-- **Duration-Price** scatter plots
-- **Monthly/Seasonal** trends
-- **Departure time** patterns
+**Airline vs Price** (boxplots)
+**Stops vs Price** correlation  
+**Source-Destination** heatmaps
+**Duration-Price** scatter plots
+**Monthly/Seasonal** trends
+**Departure time** patterns
 
 
 
